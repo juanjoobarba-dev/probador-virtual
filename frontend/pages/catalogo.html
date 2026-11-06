@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo · Probador Virtual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor">
+      <a class="logo" href="../index.html">Probador<span>Virtual</span></a>
+      <nav class="menu">
+        <a href="../index.html">Inicio</a>
+        <a href="formulario.html">Mi perfil</a>
+        <a href="catalogo.html" class="activo">Catálogo</a>
+        <a href="probador.html">Probador</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h1>Catálogo</h1>
+
+    <!-- Se enseña si el usuario aún no tiene perfil -->
+    <p id="aviso-perfil" class="aviso" hidden>
+      Todavía no has creado tu perfil. <a href="formulario.html">Crear perfil</a>
+    </p>
+
+    <!-- Filtros por categoría (data-categoria es lo que lee el JS) -->
+    <div id="filtros" class="filtros">
+      <button class="activo" data-categoria="">Todo</button>
+      <button data-categoria="camiseta">Camisetas</button>
+      <button data-categoria="camisa">Camisas</button>
+      <button data-categoria="chaqueta">Chaquetas</button>
+      <button data-categoria="pantalon">Pantalones</button>
+      <button data-categoria="vestido">Vestidos</button>
+    </div>
+
+    <!-- Aquí el JS mete las tarjetas de las prendas -->
+    <div id="rejilla" class="rejilla">Cargando…</div>
+  </main>
+
+  <script type="module" src="../js/catalogo.js"></script>
+</body>
+</html>

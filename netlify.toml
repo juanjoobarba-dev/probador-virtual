@@ -1,0 +1,22 @@
+# ============================================================
+# Configuración para publicar la web en Netlify
+# ============================================================
+# Netlify hace dos cosas con este proyecto:
+#   1. Publica la carpeta "frontend" como una web normal (la VISTA).
+#   2. Convierte el backend (Express) en una "función" que se
+#      ejecuta cuando alguien llama a /api/...
+
+[build]
+  publish   = "frontend"           # carpeta con el HTML/CSS/JS
+  functions = "backend/functions"  # carpeta con la función que arranca Express
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["express", "mysql2"]
+
+# Cualquier petición a /api/... se manda a la función "api"
+[[redirects]]
+  from   = "/api/*"
+  to     = "/.netlify/functions/api/:splat"
+  status = 200
+  force  = true

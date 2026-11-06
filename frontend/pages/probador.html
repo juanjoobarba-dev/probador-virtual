@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Probador · Probador Virtual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor">
+      <a class="logo" href="../index.html">Probador<span>Virtual</span></a>
+      <nav class="menu">
+        <a href="../index.html">Inicio</a>
+        <a href="formulario.html">Mi perfil</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="probador.html" class="activo">Probador</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- Se enseña si el usuario aún no tiene perfil -->
+    <div id="sin-perfil" class="tarjeta centrado" hidden>
+      <h2>Primero necesitamos conocerte</h2>
+      <p>Rellena tu perfil para crear tu avatar.</p>
+      <a class="boton" href="formulario.html">Crear mi perfil</a>
+    </div>
+
+    <!-- El probador: 3 columnas -->
+    <div id="probador" class="tres-columnas" hidden>
+
+      <!-- 1. Lista de prendas -->
+      <nav id="lista-prendas" class="tarjeta lista-prendas"></nav>
+
+      <!-- 2. Avatar con la prenda -->
+      <section class="tarjeta">
+        <svg id="escena" class="escena-svg grande"></svg>
+      </section>
+
+      <!-- 3. Resultado -->
+      <aside class="tarjeta">
+        <h1 id="nombre"></h1>
+        <p id="precio"></p>
+        <p id="resumen" class="resumen"></p>
+
+        <p class="etiqueta">Talla</p>
+        <div id="tallas" class="tallas"></div>
+        <p id="recomendada" class="ayuda"></p>
+
+        <ul id="zonas" class="zonas"></ul>
+
+        <!-- Leyenda de colores -->
+        <p class="leyenda">
+          <span style="color:#2e9e5b">● Bien</span>
+          <span style="color:#d99a14">● Justa / corta</span>
+          <span style="color:#d64545">● Aprieta</span>
+          <span style="color:#3f7fd9">● Holgada / larga</span>
+        </p>
+        <a href="formulario.html">Editar mi perfil</a>
+      </aside>
+    </div>
+  </main>
+
+  <script type="module" src="../js/probador.js"></script>
+</body>
+</html>

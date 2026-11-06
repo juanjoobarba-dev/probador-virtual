@@ -1,0 +1,151 @@
+/* ============================================================
+   ESTILOS DE TODA LA WEB
+   ============================================================ */
+
+/* ---------- Colores y valores que se repiten ---------- */
+:root {
+  --fondo: #f6f4f0;
+  --blanco: #ffffff;
+  --gris-claro: #efebe5;
+  --texto: #1f1c19;
+  --texto-suave: #6d665e;
+  --borde: #e2ddd5;
+  --principal: #2f5d50;        /* verde de los botones */
+  --principal-suave: #e3ece8;
+  --rojo: #d64545;
+  --radio: 14px;               /* esquinas redondeadas */
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; } /* para que el atributo hidden funcione siempre */
+
+body {
+  margin: 0;
+  font-family: "Outfit", system-ui, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+h1, h2 { margin: 0 0 12px; line-height: 1.15; }
+a { color: var(--principal); }
+
+/* Ancho máximo del contenido, centrado */
+.contenedor { width: min(1120px, 100% - 32px); margin: 0 auto; }
+main { padding: 32px 0 64px; }
+
+/* ---------- Menú superior ---------- */
+.cabecera { background: var(--blanco); border-bottom: 1px solid var(--borde); }
+.cabecera .contenedor { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.logo { font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--texto); }
+.logo span { color: var(--principal); }
+.menu { display: flex; gap: 4px; }
+.menu a { padding: 8px 12px; border-radius: 999px; text-decoration: none; color: var(--texto-suave); white-space: nowrap; }
+.menu a.activo { background: var(--principal-suave); color: var(--principal); font-weight: 600; }
+
+/* ---------- Tarjetas, botones y avisos ---------- */
+.tarjeta { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); padding: 24px; }
+
+.boton {
+  display: inline-block; padding: 12px 22px; border-radius: 999px; border: 1px solid var(--principal);
+  background: var(--principal); color: white; font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+}
+.boton.secundario { background: transparent; color: var(--texto); border-color: var(--borde); }
+.boton:disabled { opacity: .4; cursor: default; }
+
+.aviso { background: var(--principal-suave); color: var(--principal); padding: 14px 18px; border-radius: var(--radio); }
+.aviso.error { background: #fbe9e9; color: var(--rojo); }
+
+.ayuda { color: var(--texto-suave); }
+.etiqueta { display: block; font-weight: 600; margin: 18px 0 6px; }
+.centrado { text-align: center; }
+
+/* ---------- Portada ---------- */
+.portada { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.portada h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+.portada p { font-size: 1.15rem; color: var(--texto-suave); }
+
+/* ---------- Dibujo SVG del avatar ---------- */
+.escena-svg { width: 100%; height: 420px; }
+.escena-svg.grande { height: min(72vh, 640px); }
+.escena-svg text { font-family: "Outfit", sans-serif; fill: var(--texto); }
+
+/* ---------- Formulario ---------- */
+.dos-columnas { display: grid; grid-template-columns: 1fr 340px; gap: 32px; align-items: start; }
+
+.progreso { display: flex; gap: 8px; padding: 0; margin: 0 0 24px; list-style: none; }
+.progreso li { flex: 1; border-top: 4px solid var(--borde); padding-top: 6px; font-size: .85rem; color: var(--texto-suave); }
+.progreso li.activo { border-color: var(--principal); color: var(--texto); }
+
+fieldset { border: 0; padding: 0; margin: 0; }
+legend { font-size: 1.4rem; font-weight: 700; padding: 0; }
+
+input[type="number"], input[type="text"] {
+  width: 100%; padding: 11px 14px; border: 1px solid var(--borde); border-radius: 10px; font: inherit;
+}
+
+/* Opciones tipo "botón" (son radios escondidos) */
+.opciones { display: flex; flex-wrap: wrap; gap: 8px; }
+.opciones input { position: absolute; opacity: 0; }   /* escondemos el círculo del radio */
+.opciones span {
+  display: inline-block; padding: 9px 16px; border: 1px solid var(--borde); border-radius: 999px; cursor: pointer;
+}
+.opciones input:checked + span {                      /* la opción elegida */
+  background: var(--principal-suave); border-color: var(--principal); color: var(--principal); font-weight: 600;
+}
+
+.botones { display: flex; justify-content: space-between; margin-top: 32px; }
+
+.medidas { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; margin: 0; }
+.medidas dt { color: var(--texto-suave); }
+.medidas dd { margin: 0; font-weight: 600; }
+
+/* ---------- Catálogo ---------- */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 24px; }
+.filtros button { padding: 8px 16px; border: 1px solid var(--borde); border-radius: 999px; background: var(--blanco); font: inherit; cursor: pointer; }
+.filtros button.activo { background: var(--texto); color: var(--blanco); }
+
+.rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.producto { padding: 0; overflow: hidden; }
+.producto .imagen { background: var(--gris-claro); height: 280px; padding: 16px; }
+.producto .imagen svg { width: 100%; height: 100%; }
+.producto .info { padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.producto h3 { margin: 0; }
+.producto .tallas { color: var(--texto-suave); font-size: .85rem; }
+
+/* ---------- Probador ---------- */
+.tres-columnas { display: grid; grid-template-columns: 220px 1fr 340px; gap: 24px; align-items: start; }
+
+.lista-prendas { padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+.lista-prendas button {
+  display: flex; align-items: center; gap: 10px; padding: 8px; border: 0; border-radius: 10px;
+  background: none; font: inherit; text-align: left; cursor: pointer;
+}
+.lista-prendas button.activo { background: var(--principal-suave); color: var(--principal); font-weight: 600; }
+.lista-prendas .mini { width: 44px; height: 44px; flex: none; background: var(--gris-claro); border-radius: 8px; }
+.lista-prendas .mini svg { width: 100%; height: 100%; }
+
+.resumen { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--principal-suave); color: var(--principal); font-weight: 600; }
+
+.tallas { display: flex; flex-wrap: wrap; gap: 8px; }
+.tallas button { min-width: 52px; padding: 10px; border: 1px solid var(--borde); border-radius: 10px; background: var(--blanco); font: inherit; font-weight: 600; cursor: pointer; }
+.tallas button.activo { background: var(--texto); color: var(--blanco); }
+
+.zonas { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.zonas li { display: flex; gap: 10px; padding: 10px 12px; border-radius: 10px; background: var(--gris-claro); }
+.zonas .punto { width: 12px; height: 12px; border-radius: 50%; margin-top: 6px; flex: none; }
+.zonas small { display: block; color: var(--texto-suave); }
+
+.leyenda { display: flex; flex-wrap: wrap; gap: 12px; font-size: .85rem; }
+
+/* ---------- Móvil y tablet ---------- */
+@media (max-width: 1000px) {
+  .tres-columnas, .dos-columnas, .portada { grid-template-columns: 1fr; }
+  .lista-prendas { flex-direction: row; overflow-x: auto; }
+}
+@media (max-width: 560px) {
+  /* En el móvil el menú baja debajo del logo */
+  .cabecera .contenedor { flex-wrap: wrap; height: auto; padding: 10px 0; gap: 6px; }
+  .menu a { padding: 6px 10px; font-size: .9rem; }
+}

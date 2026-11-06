@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Probador Virtual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Menú superior (se repite en todas las páginas) -->
+  <header class="cabecera">
+    <div class="contenedor">
+      <a class="logo" href="index.html">Probador<span>Virtual</span></a>
+      <nav class="menu">
+        <a href="index.html" class="activo">Inicio</a>
+        <a href="pages/formulario.html">Mi perfil</a>
+        <a href="pages/catalogo.html">Catálogo</a>
+        <a href="pages/probador.html">Probador</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="portada">
+      <div>
+        <h1>Mira cómo te queda antes de comprar.</h1>
+        <p>Cuéntanos cómo es tu cuerpo, elige una prenda y la verás puesta en tu avatar, con colores que te dicen dónde aprieta, dónde sobra y qué talla es la tuya.</p>
+        <a class="boton" href="pages/formulario.html">Crear mi perfil</a>
+        <a class="boton secundario" href="pages/catalogo.html">Ver catálogo</a>
+      </div>
+      <div class="tarjeta">
+        <!-- Aquí el JS dibuja un avatar de ejemplo -->
+        <svg id="ejemplo" class="escena-svg"></svg>
+      </div>
+    </section>
+  </main>
+
+  <!-- Avatar de ejemplo con una chaqueta (datos inventados, no llama a la API) -->
+  <script type="module">
+    import { dibujarEscena } from './js/avatar.js';
+
+    dibujarEscena(document.getElementById('ejemplo'), {
+      cuerpo: { altura: 172, hombros: 44, pecho: 96, cintura: 82, cadera: 98, entrepierna: 78 },
+      tonoPiel: 'medio',
+      prenda: { tipo: 'superior', categoria: 'chaqueta', color: '#3d5a80' },
+      talla: { hombros: 46.5, pecho: 110, cintura: 106, largo: 64 },
+      zonas: [
+        { zona: 'hombros', estado: 'bien' }, { zona: 'pecho', estado: 'bien' },
+        { zona: 'cintura', estado: 'grande' }, { zona: 'largo', estado: 'bien' },
+      ],
+    });
+  </script>
+</body>
+</html>

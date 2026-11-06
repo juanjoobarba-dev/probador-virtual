@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi perfil · Probador Virtual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor">
+      <a class="logo" href="../index.html">Probador<span>Virtual</span></a>
+      <nav class="menu">
+        <a href="../index.html">Inicio</a>
+        <a href="formulario.html" class="activo">Mi perfil</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="probador.html">Probador</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor dos-columnas">
+
+    <!-- ===== FORMULARIO (4 pasos, el JS enseña uno cada vez) ===== -->
+    <form id="formulario" class="tarjeta" novalidate>
+
+      <ol id="progreso" class="progreso">
+        <li>Básico</li><li>Forma</li><li>Medidas</li><li>Preferencias</li>
+      </ol>
+
+      <!-- PASO 1: datos básicos -->
+      <fieldset class="paso">
+        <legend>Lo básico</legend>
+
+        <p class="etiqueta">Tipo de cuerpo</p>
+        <div class="opciones">
+          <label><input type="radio" name="sexo" value="masculino"><span>Masculino</span></label>
+          <label><input type="radio" name="sexo" value="femenino"><span>Femenino</span></label>
+          <label><input type="radio" name="sexo" value="neutro" checked><span>Neutro</span></label>
+        </div>
+
+        <label class="etiqueta" for="altura">Altura (cm)</label>
+        <input id="altura" name="altura" type="number" min="120" max="220" placeholder="175" required>
+
+        <label class="etiqueta" for="peso">Peso (kg)</label>
+        <input id="peso" name="peso" type="number" min="30" max="200" placeholder="70" required>
+
+        <label class="etiqueta" for="nombre">Nombre (opcional)</label>
+        <input id="nombre" name="nombre" type="text" maxlength="60">
+      </fieldset>
+
+      <!-- PASO 2: forma del cuerpo -->
+      <fieldset class="paso">
+        <legend>Forma del cuerpo</legend>
+
+        <p class="etiqueta">Silueta</p>
+        <div class="opciones">
+          <label><input type="radio" name="tipoCuerpo" value="triangulo"><span>Triángulo (más cadera)</span></label>
+          <label><input type="radio" name="tipoCuerpo" value="triangulo-invertido"><span>Triángulo invertido (más espalda)</span></label>
+          <label><input type="radio" name="tipoCuerpo" value="rectangulo" checked><span>Rectángulo</span></label>
+          <label><input type="radio" name="tipoCuerpo" value="reloj-arena"><span>Reloj de arena</span></label>
+          <label><input type="radio" name="tipoCuerpo" value="ovalo"><span>Óvalo</span></label>
+        </div>
+
+        <p class="etiqueta">Hombros</p>
+        <div class="opciones">
+          <label><input type="radio" name="hombros" value="estrechos"><span>Estrechos</span></label>
+          <label><input type="radio" name="hombros" value="normales" checked><span>Normales</span></label>
+          <label><input type="radio" name="hombros" value="anchos"><span>Anchos</span></label>
+        </div>
+
+        <p class="etiqueta">Tripa</p>
+        <div class="opciones">
+          <label><input type="radio" name="tripa" value="plana"><span>Plana</span></label>
+          <label><input type="radio" name="tripa" value="media" checked><span>Media</span></label>
+          <label><input type="radio" name="tripa" value="marcada"><span>Marcada</span></label>
+        </div>
+
+        <p class="etiqueta">Piernas</p>
+        <div class="opciones">
+          <label><input type="radio" name="piernas" value="cortas"><span>Cortas</span></label>
+          <label><input type="radio" name="piernas" value="proporcionadas" checked><span>Proporcionadas</span></label>
+          <label><input type="radio" name="piernas" value="largas"><span>Largas</span></label>
+        </div>
+      </fieldset>
+
+      <!-- PASO 3: medidas exactas (opcionales) -->
+      <fieldset class="paso">
+        <legend>Medidas exactas (opcional)</legend>
+        <p class="ayuda">Si las dejas vacías, las calculamos nosotros con tu altura, peso y forma.</p>
+
+        <label class="etiqueta" for="pecho">Pecho (cm) — por la parte más ancha</label>
+        <input id="pecho" name="pecho" type="number" min="60" max="160">
+
+        <label class="etiqueta" for="cintura">Cintura (cm) — por encima del ombligo</label>
+        <input id="cintura" name="cintura" type="number" min="50" max="160">
+
+        <label class="etiqueta" for="cadera">Cadera (cm) — por la parte más ancha</label>
+        <input id="cadera" name="cadera" type="number" min="60" max="170">
+
+        <label class="etiqueta" for="entrepierna">Entrepierna (cm) — de la ingle al suelo</label>
+        <input id="entrepierna" name="entrepierna" type="number" min="50" max="110">
+      </fieldset>
+
+      <!-- PASO 4: preferencias -->
+      <fieldset class="paso">
+        <legend>Preferencias</legend>
+
+        <p class="etiqueta">¿Cómo te gusta que te quede la ropa?</p>
+        <div class="opciones">
+          <label><input type="radio" name="preferencia" value="ajustado"><span>Ajustada</span></label>
+          <label><input type="radio" name="preferencia" value="normal" checked><span>Normal</span></label>
+          <label><input type="radio" name="preferencia" value="holgado"><span>Holgada</span></label>
+        </div>
+
+        <p class="etiqueta">Tono de piel del avatar</p>
+        <div class="opciones">
+          <label><input type="radio" name="tonoPiel" value="claro"><span>Claro</span></label>
+          <label><input type="radio" name="tonoPiel" value="medio" checked><span>Medio</span></label>
+          <label><input type="radio" name="tonoPiel" value="moreno"><span>Moreno</span></label>
+          <label><input type="radio" name="tonoPiel" value="oscuro"><span>Oscuro</span></label>
+        </div>
+      </fieldset>
+
+      <p id="error" class="aviso error" hidden></p>
+
+      <div class="botones">
+        <button type="button" id="atras" class="boton secundario">Atrás</button>
+        <button type="button" id="siguiente" class="boton">Siguiente</button>
+        <button type="submit" id="guardar" class="boton">Guardar e ir al catálogo</button>
+      </div>
+    </form>
+
+    <!-- ===== VISTA PREVIA DEL AVATAR ===== -->
+    <aside class="tarjeta">
+      <h2>Tu avatar</h2>
+      <p id="texto-avatar" class="ayuda">Escribe tu altura y peso para verlo.</p>
+      <svg id="avatar" class="escena-svg" hidden></svg>
+      <dl id="medidas" class="medidas"></dl>
+    </aside>
+  </main>
+
+  <script type="module" src="../js/formulario.js"></script>
+</body>
+</html>
